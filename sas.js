@@ -2,7 +2,7 @@ var debugData = "";
 // Catching error purpose, this var will count every page loaded to prevent loading loop
 var incrementalSwitchPage = 0;
 var cookieName = "fakeypress";
-var version = "BEST VERSÃO";
+var version = "1.99";
 var updateversion = 1.7;
 var keycodes = {
     "a": 65,
@@ -20,7 +20,7 @@ var keyedits = {
     "skip": false,
     "left": false,
     "right": false
-};
+}; 
 var key;
 var keydown = false;
 var cansend = true;
@@ -81,10 +81,10 @@ function run() {
             keycodes.skip = parseInt(userkeys[3]);
             keycodes.left = parseInt(userkeys[5]);
             keycodes.right = parseInt(userkeys[4]);
-            setCookie(cookieName, 100);
+            setCookie(cookieName, 180);
         } else if (parseFloat($.cookie(cookieName)
                 .split("{")[1].split("}")[0]) <= updateversion) {
-            UI.ErrorMessage("PODE USAR DO JEITO QUE QUISER, BRPORRA.", 50);
+            UI.ErrorMessage("A cause d'une mise a jour, les donnÃƒÆ’Ã‚Â©es ont ÃƒÆ’Ã‚Â©tÃƒÆ’Ã‚Â©s perdues. Veuillez recommencer les assignations de touches.", 5000);
 
             resetCookie();
         } else {
@@ -100,7 +100,7 @@ function run() {
             keycodes.right = parseInt(userkeys[4]);
         }
     } else {
-        UI.SuccessMessage("SEJA BEM VINDO A PUTARIA", 50);
+        UI.SuccessMessage("Bienvenue sur le Fakeypress de Crimsoni", 1000);
         resetCookie();
     }
     faTable = $('#plunder_list');
@@ -357,13 +357,13 @@ function addPressKey() {
         } else if (cansend) {
             if (key == keycodes.c) {
                 click('c');
-                doTime(100);
+                doTime(201);
             } else if (key == keycodes.a) {
                 click('a');
-                doTime(100);
+                doTime(201);
             } else if (key == keycodes.b) {
                 click('b');
-                doTime(100);
+                doTime(201);
             }
         }
     }
@@ -404,23 +404,23 @@ function addTable() {
         .after($(
             "<div id='divFAPress' class='vis' style='font-size:12px;width:40%'><table id='faKeyPress' class='vis' style='width:100%' cellspacing='0'><thead><tr><th colspan='10' style='font-size:16px;text-align:center'>FA Keypress v" +
             version +
-            " by<br>GUGA IS BOSTA</tr></thead>" +
-            "<tbody>" +
-                "<tr id='buttonRow'>" +
+            " by<br> Crimsoni & Sytten</tr></thead>" + 
+            "<tbody>" + 
+                "<tr id='buttonRow'>" + 
                     "<th colspan='1' valign='middle'>Boutons: <img src='https://media.innogamescdn.com/com_DS_FR/Scripts/Pillage/questionmark.png' title='Clique sur un bouton puis une touche du clavier pour modifier' width='13' height='13' alt='' class='tooltip' />" +
-                    "<td colspan='1' align='center'>" +
-                        "<a href='#' onclick='return setEditMode(0)' id='buttona' class='tooltip farm_icon farm_icon_a' title='Bouton A'>" +
-                    "<td colspan='1' align='center'>" +
-                        "<a href='#' onclick='return setEditMode(1)' id='buttonb' class='tooltip farm_icon farm_icon_b' title='Bouton B'>" +
-                    "<td colspan='1' align='center'>" +
+                    "<td colspan='1' align='center'>" + 
+                        "<a href='#' onclick='return setEditMode(0)' id='buttona' class='tooltip farm_icon farm_icon_a' title='Bouton A'>" + 
+                    "<td colspan='1' align='center'>" + 
+                        "<a href='#' onclick='return setEditMode(1)' id='buttonb' class='tooltip farm_icon farm_icon_b' title='Bouton B'>" + 
+                    "<td colspan='1' align='center'>" + 
                         "<a href='#' onclick='return setEditMode(2)' id='buttonc' class='tooltip farm_icon farm_icon_c'  title='Bouton C'>"+
-                    "<td colspan='1' align='center'>" +
-                        "<input class='btn tooltip' type='button' value='Ignorer' onclick='return setEditMode(3)' style='margin:0px 0px 0px 0px' title='Ignore la ligne de pillage'/>" +
-                    "<td colspan='1' align='center'>" +
-                        "<a href='#' onclick='return setEditMode(4)' id='buttonleft' class='tooltip ' title='<-'><-</a>" +
-                    "<td colspan='1' align='center'>" +
+                    "<td colspan='1' align='center'>" + 
+                        "<input class='btn tooltip' type='button' value='Ignorer' onclick='return setEditMode(3)' style='margin:0px 0px 0px 0px' title='Ignore la ligne de pillage'/>" + 
+                    "<td colspan='1' align='center'>" + 
+                        "<a href='#' onclick='return setEditMode(4)' id='buttonleft' class='tooltip ' title='<-'><-</a>" + 
+                    "<td colspan='1' align='center'>" + 
                         "<a href='#' onclick='return setEditMode(5)' id='buttonright' class='tooltip ' title='->'>-></a>" +
-                "</tr>" +
+                "</tr>" + 
                 "<tr id='keysRow'>"+
                     "<th colspan='1'>Touche:<td align='center'>" +
             String.fromCharCode(keycodes.a) + "<td align='center'>" + String.fromCharCode(keycodes.b) + "<td align='center'>" + String.fromCharCode(
@@ -535,7 +535,7 @@ function chkBoxClick(yolo, index) {
                 .prop("disabled", true);
         }
     }
-    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 50);
+    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 180);
 }
 
 function saveSettings() {
@@ -545,8 +545,8 @@ function saveSettings() {
         .val();
     userset[pos.s.MaxNbAttacks] = $('#txtNbAttacks')
         .val();
-    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 50);
-    UI.SuccessMessage("ParamÃƒÆ’Ã‚Â¨tres sauvÃƒÆ’Ã‚Â©s", 100);
+    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 180);
+    UI.SuccessMessage("ParamÃƒÆ’Ã‚Â¨tres sauvÃƒÆ’Ã‚Â©s", 1000);
 }
 
 function setEditMode(let) {
@@ -595,7 +595,7 @@ function resetCookie() {
     $.cookie(cookieName, null);
     userkeys = [65, 66, 67, 74, 39, 37, 90];
     userset = ["distance", "asc", "0", "1", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0"];
-    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 50);
+    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 180);
 }
 
 
@@ -603,7 +603,7 @@ function resetCookie() {
 /****************************Update Function****************************/
 function refresh() {
     userkeys = [keycodes.a, keycodes.b, keycodes.c, keycodes.skip, keycodes.right, keycodes.left, keycodes.master];
-    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 50);
+    setCookie(cookieName, "{" + version + "}[" + userkeys.toString() + "][" + userset.toString() + "]", 180);
     setEditMode(10);
     $('#divFAPress')
         .remove();
@@ -665,7 +665,7 @@ function customSendUnits(link, target_village, template_id, button) {
                 .attr('src');
             var sep1 = buttext.split("<br />");
             sep1.splice(sep1.length - 2, 1);
-            UI.SuccessMessage(sep1.join(" "), 50);
+            UI.SuccessMessage(sep1.join(" "), 1000);
             button.closest("tr")
                 .remove();
             Accountmanager.farm.updateOwnUnitsAvailable(data.current_units);
@@ -707,7 +707,7 @@ function customSendUnitsFromReport(link, target_village, report_id, button) {
                     .attr('src');
                 var sep1 = buttext.split("<br />");
                 sep1.splice(sep1.length - 2, 1);
-                UI.SuccessMessage(sep1.join(" "), 50);
+                UI.SuccessMessage(sep1.join(" "), 1000);
                 $('.farm_village_' + target_village)
                     .addClass('farm_icon_disabled');
                 Accountmanager.farm.updateOwnUnitsAvailable(data.current_units);
@@ -835,7 +835,7 @@ function getNewVillage(way) {
                 //On change manuellement le village dans les donnÃƒÂ©es car ce n'est pas fait automatiquement
                 var viviId = debugData.village.id;
                 game_data.village.id = viviId;
-
+                
                 $('#header_info')
                     .html($('#header_info', v)
                         .html());
@@ -872,7 +872,7 @@ function getFA() {
     fadeThanksToCheese();
     openLoader();
     var vlink = link[0] + window.game_data.village.id + link[1];
-    $.getScript("https://dsbr.innogamescdn.com/assets/" + window.location.host.substring(0,4) + "/b557b6ba364cab734dc830da16cb24de/js/game/Accountmanager.js_", function() {
+    $.getScript("https://dsfr.innogamescdn.com/assets/" + window.location.host.substring(0,4) + "/b557b6ba364cab734dc830da16cb24de/js/game/Accountmanager.js_", function() {
         $.ajax({
             type: "GET",
             url: vlink,
@@ -947,15 +947,17 @@ function openLoader() {
     $('#contentContainer')
         .append($(widget));
 
-		/* 	This timeout check if the loading is correctly done 4 seconds after his start
-			If not, then the event is cancelled, and the last page is loaded from scratch
+		/* 	This timeout check if the loading is correctly done 4 seconds after his start 
+			If not, then the event is cancelled, and the last page is loaded from scratch 
 		*/
     setTimeout(function() {
         if (incrementalSwitchPage <= currentIncremental) {
-                 var currentURL = document.URL.split("village=") + "village=" + game_data.village.id + "&screen=am_farm";
+            UI.ErrorMessage('Un problÃƒÆ’Ã‚Â¨me a ÃƒÆ’Ã‚Â©tÃƒÆ’Ã‚Â© rencontrÃƒÆ’Ã‚Â©, la page va se recharger.');
+            var currentURL = document.URL.split("village=") + "village=" + game_data.village.id + "&screen=am_farm";
             window.location.href = currentURL;
-		        }
-    }, 1);
+			console.log("La page a mis trop de temps ÃƒÆ’  se charger.")
+        }
+    }, 0);
 
 }
 
@@ -988,4 +990,3 @@ function showKeys() {
 
 
 run();
-
