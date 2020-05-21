@@ -1,5 +1,3 @@
-javascript:
-
 var debugData = "";
 // Catching error purpose, this var will count every page loaded to prevent loading loop
 var incrementalSwitchPage = 0;
